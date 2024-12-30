@@ -1,0 +1,39 @@
+---
+import {getCollection, CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import H1 from "../../components/H1.astro";
+import Main from "../../components/Main.astro";
+import Image from "astro/components/Image.astro";
+import { getEntryBySlug } from "astro:content";
+
+// Access the slug from Astro.props (for dynamic routes)
+const { slug } = Astro.params;
+
+// Use the slug as the entry identifier for getEntry()
+const post = await getEntryBySlug("posts", slug as string);
+
+if (!post) {
+    return Astro.redirect('/404');
+}
+
+// Access post content directly without render()
+const {Content }= await post.render();
+
+
+---
+
+<Layout title={post.data.title}>
+    <Main>
+        <H1 text={post.data.title}/>
+        <Image
+        src={post.data.image}
+        width={1024}
+        height={1024 / 1.5}
+        alt={post.data.title}
+        class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover"
+    />
+    <div class="prose prose-2xl overflow-visible relative mb-20">
+         <Content/>
+    </div>
+    </Main>
+</Layout>
