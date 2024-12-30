@@ -3,7 +3,7 @@ import {getCollection, CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import H1 from "../../components/H1.astro";
 import Main from "../../components/Main.astro";
-import Image from "astro/components/Image.astro";
+import {Image} from 'astro:assets';
 import { getEntryBySlug } from "astro:content";
 
 // Access the slug from Astro.props (for dynamic routes)
