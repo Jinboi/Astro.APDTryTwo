@@ -14,7 +14,5 @@ export default defineConfig({
   integrations: [tailwind(), mdx()],  
   site: 'https://www.animeportraitdude.com',
   output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: netlify(),
 });
