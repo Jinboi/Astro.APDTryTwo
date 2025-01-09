@@ -7,9 +7,14 @@ import mdx from '@astrojs/mdx';
 
 import netlify from '@astrojs/netlify';
 
+import node from '@astrojs/node';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), mdx()],
+  integrations: [tailwind(), mdx()],  
+  site: 'https://www.animeportraitdude.com',
   output: 'server',
-  adapter: netlify(),
+  adapter: node({
+    mode: 'standalone',
+  }),
 });
