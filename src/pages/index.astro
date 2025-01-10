@@ -1,17 +1,24 @@
 ---
-//import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import H1 from "../components/H1.astro";
 import Main from "../components/Main.astro";
+import Hero from '../components/Hero.astro';
+import Products from '../components/Products.astro';
 
 export const prerender = true;
 
 ---
-
 <Layout title="Anime Portrait Dude">
 	<Main>
-		<H1 text="Welcome to Anime Portrait Dude"/>
-		
+		<Hero />
+		<H1 text="Welcome to Anime Portrait Dude"/>		
 		<a href="/checkout" class="button">Checkout</a>
+
+		//Add Products
+		<Products />
+		//Add How It Works
+		//Add Reviews
+		//Browse Gallery 
+		//Footer
 	</Main>
 </Layout>

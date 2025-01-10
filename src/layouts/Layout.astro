@@ -2,7 +2,6 @@
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Hero from "../components/Hero.astro";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -23,18 +22,12 @@ const {title, description = "Anime Portrait Dude Description", image = "/images/
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image}/>
-		<title>Astro AnimePortraitDude</title>
+		<title>AnimePortraitDude</title>
+		<ClientRouter />
 	</head>
 	<body class="min-h-screen">
-		<Hero />
 		<Header />
 		<slot />
-		//Add HERO
-		//Add Products
-		//Add How It Works
-		//Add Reviews
-		//Browse Gallery 
-		//Footer
 	</body>
 	<Footer />
 </html>
