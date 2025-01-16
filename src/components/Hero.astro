@@ -1,23 +1,51 @@
+---
+import { Image } from 'astro:assets';
 
-<div class="grid gap-4">
-  <div>
-      <img class="h-auto max-w-full rounded-lg" src="/Jesse.png" alt="">
-  </div>
-  <div class="grid grid-cols-5 gap-4">
-      <div>
-          <img class="h-auto max-w-full rounded-lg" src="/In.png" alt="">
-      </div>
-      <div>
-          <img class="h-auto max-w-full rounded-lg" src="/Daniella.jpg" alt="">
-      </div>
-      <div>
-          <img class="h-auto max-w-full rounded-lg" src="Copy.jpg" alt="">
-      </div>
-      <div>
-          <img class="h-auto max-w-full rounded-lg" src="Extension.jpg" alt="">
-      </div>
-      <div>
-          <img class="h-auto max-w-full rounded-lg" src="Logo.png" alt="">
-      </div>
+const { title = "Transform Your Photos into Timeless Anime Portraits", subtitle = "The perfect way to celebrate your love with a personal touch." } = Astro.props;
+---
+
+<style>
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    /* Initially make the content invisible */
+    .animate-fade-in-up {
+      opacity: 0; /* Set initial opacity to 0 */
+      animation: fade-in-up 1.5s ease-out forwards; /* Apply the animation */
+      animation-delay: 2s; /* Delay the start of the text animation */
+    }
+  </style>
+</style>
+
+<div class="relative min-h-screen flex items-center justify-center text-black">
+  <Image
+    class="absolute inset-0 h-full w-full object-cover rounded-lg"
+    src="/Jesse.png"
+    alt="Background image of Jesse"
+    width={1200} 
+    height={800} 
+  />
+  <div
+    class="relative bg-white bg-opacity-80 border border-gray-300 rounded-lg px-6 py-10 text-center max-w-4xl mx-auto animate-fade-in-up"
+  >
+    <h1 class="text-4xl sm:text-6xl font-bold mb-4">
+      {title}
+    </h1>
+    <h2 class="text-lg sm:text-2xl font-light mb-8">
+      {subtitle}
+    </h2>
+    <button
+      class="bg-black text-white font-semibold py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300"
+    >
+      Get Started Now
+    </button>
   </div>
 </div>

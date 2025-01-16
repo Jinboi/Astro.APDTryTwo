@@ -2,28 +2,60 @@
 import Layout from '../layouts/Layout.astro';
 import H1 from "../components/H1.astro";
 import Main from "../components/Main.astro";
-import Hero from '../components/Hero.astro';
+import Gallery from '../components/Gallery.astro';
 import Products from '../components/Products.astro';
+import {Image} from 'astro:assets';
+
+import Hero from '../components/Hero.astro';
 
 export const prerender = true;
-
 ---
+
 <Layout title="Anime Portrait Dude">
-	
-	<H1 text="Transform Your Photos into Timeless Anime Portraits"/>	
-	<h2>The perfect way to celebrate your love with a personal touch.</h2>
+	<Hero 
+		title="Bring Your Memories to Life with Anime Art" 
+		subtitle="Turn special moments into creative treasures with ease." 
+	/>
+	<Main>
+		<section class="py-12 bg-gradient-to-b from-white to-purple-50">
+			<H1 text="Gallery" />
+			<Gallery />
+			<div class="text-center mt-8">
+				<a href="/checkout" class="bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition duration-300">
+					Checkout
+				</a>
+			</div>
+		</section>
 
+		<section class="py-12 bg-white">
+			<H1 text="Our Products" />
+			<Products />
+		</section>
 
+		<section class="py-12 bg-gradient-to-b from-purple-50 to-pink-50">
+			<H1 text="How It Works" />
+			<p class="max-w-2xl mx-auto text-center text-gray-700 mt-4">
+				Upload your photo, choose your style, and let our artists create a stunning anime portrait you'll treasure forever.
+			</p>
+		</section>
 
+		<section class="py-12 bg-white">
+			<H1 text="Reviews" />
+			<p class="max-w-2xl mx-auto text-center text-gray-700 mt-4">
+				See what our happy customers have to say about their anime portraits!
+			</p>
+			<!-- Add a testimonial component or slider here -->
+		</section>
 
-	<Main>				
-		<Hero />
-		<a href="/checkout" class="button">Checkout</a>
+		<section class="py-12 bg-gradient-to-b from-pink-50 to-white">
+			<H1 text="Browse the Gallery" />
+			<Gallery />
+		</section>
 
-		//Add Products
-		//Add How It Works
-		//Add Reviews
-		//Browse Gallery 
-		//Footer
+		<footer class="bg-gray-800 text-white py-8">
+			<div class="container mx-auto text-center">
+				<p class="text-sm">&copy; 2025 Anime Portrait Dude. All rights reserved.</p>
+			</div>
+		</footer>
 	</Main>
 </Layout>
